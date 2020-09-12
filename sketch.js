@@ -56,7 +56,7 @@ function setup() {
   block25 = new Box(1160,300,40,40);
 
   polygon = new Polygon(100,200,90,70)
-  sling = new SlingShot(polygon,{x:100,y:200});
+  sling = new SlingShot(polygon.body,{x:100,y:200});
 }
 
 function draw() {
@@ -101,4 +101,12 @@ function draw() {
    
    //block2.display(); 
   //drawSprites();
+}
+
+function mouseDragged(){
+Matter.Body.setPosition(polygon.body,{x:mouseX , y:mouseY})
+}
+
+function mouseRealeased(){
+slingshot.fly();
 }
